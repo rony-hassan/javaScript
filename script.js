@@ -1,22 +1,25 @@
-// type conversion = change the data type of a value to another
-                    // String() - converts a value to a string
-                    // Number() - converts a value to a number
-                    // Boolean() - converts a value to a boolean
+// const = a variable that can't be changed
 
-/*let age = window.prompt("How old are you?");
-age = Number(age);
-age +=1;
+/*const pi = 3.1416; // If i had used let i can changed the value later but in case of 'const' we can not do that. It's for the safety.
+let radius;
+let circumference;
 
-console.log(age);*/
+radius = window.prompt("Enter the radius of circle");
+radius = Number(radius);
 
-let x = "pizza";
-let y = "pizza";
-let z = "pizza";
+circumference = 2 * pi * radius;
 
-x = Number(x);
-y = String(y);
-z = Boolean(z);
+console.log(circumference);*/
 
-console.log(x, typeof x);
-console.log(y, typeof y);
-console.log(z, typeof z);
+const PI = 3.1416;
+let radius;
+let circumference;
+
+document.getElementById("myButton").onclick = function() {
+    radius = document.getElementById("myText").value;
+    radius = Number(radius);
+
+    circumference = 2 * PI * radius;
+
+    document.getElementById("myH1").textContent = `The Circumference is: ${circumference}`;
+}
