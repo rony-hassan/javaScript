@@ -1,19 +1,25 @@
-//operator
+// How to accept user input
 
-let students = 30;
+// 1. Easy way = window prompt
+// 2. Professional way = HTML textbox
 
-//students = students +1; //Addition
-//students = students -1; //Subtracton
-//students = students * 2; //Multiplication
-students = students ** 2; //Exponent
+/* let username;
 
-console.log(students);
+username = window.prompt("What's your username?");
 
-/*
-    Operator precedence
-
-    1. parenthesis ()
-    2. exponentiation (**)
-    3. multiplication and division & modulo
-    4. addition and subtraction
+console.log(username); 
 */
+
+//HTML textbox
+
+let username;
+
+/* document.getElementById("mySubmit").onclick = function(){
+    username = document.getElementById("myText").value;
+    console.log(username);
+}  1st Example */
+
+document.getElementById("mySubmit").onclick = function() {
+    username = document.getElementById("myText").value;
+    document.getElementById("myH1").textContent = `Hello ${username}!`;
+}
