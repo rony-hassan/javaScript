@@ -1,7 +1,19 @@
-let fullName = "Rony Hassan";
-let age = 25;
-let student = false;
+//operator
 
-document.getElementById("p1").textContent = `Your name is ${fullName}`;
-document.getElementById("p2").textContent = `Your age is ${age}`;
-document.getElementById("p3").textContent = `Enrolled: ${student}`;
+let students = 30;
+
+//students = students +1; //Addition
+//students = students -1; //Subtracton
+//students = students * 2; //Multiplication
+students = students ** 2; //Exponent
+
+console.log(students);
+
+/*
+    Operator precedence
+
+    1. parenthesis ()
+    2. exponentiation (**)
+    3. multiplication and division & modulo
+    4. addition and subtraction
+*/
