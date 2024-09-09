@@ -1,20 +1,23 @@
-// String Slicing
-//               string.slice(start, end);
+/* Method Chaining = Calling one method after another
+                    in one continuous line of code. */
+                    
 
-const fullName = "Rony Hassan";
+let username = window.prompt("Enter your username: ");
+// -------- Before Method Chaining ---------
+/*
+username = username.trim();
+let letter = username.charAt(0);
+letter = letter.toUpperCase();
 
-//let firstName = fullName.slice(0, 2);
-//let lastName = fullName.slice(-1);
+let extraChars = username.slice(1);
+extraChars = extraChars.toLowerCase();
 
-let firstName = fullName.slice(0, fullName.indexOf(" "));
-let lastName = fullName.slice(fullName.indexOf(" ")+1);
+username = letter + extraChars;
 
-console.log(firstName);
-console.log(lastName);
-
-const email = "rony@gmail.com";
-
-let username = email.slice(0, email.indexOf("@"));
-let extension = email.slice(email.indexOf("@") + 1);
 console.log(username);
-console.log(extension);
+*/
+
+// -------- METHOD CHAINING --------
+
+username = username.trim().charAt(0).toUpperCase() + username.slice(1).toLowerCase();
+console.log(username);
