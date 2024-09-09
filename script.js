@@ -1,23 +1,33 @@
-// Random number generator
+// Statements 
 
+const myText = document.getElementById("myText");
 const myButton = document.getElementById("myButton");
-const label1 = document.getElementById("label1");
-const label2 = document.getElementById("label2");
-const label3 = document.getElementById("label3");
+const answer = document.getElementById("replyText");
 
-const min =1;
-const max=6;
-
-let randomNum1;
-let randomNum2;
-let randomNum3;
+let age;
 
 myButton.onclick = function() {
-    randomNum1 = Math.floor(Math.random() * max) + min;
-    randomNum2 = Math.floor(Math.random() * max) + min;
-    randomNum3 = Math.floor(Math.random() * max) + min;
 
-    label1.textContent = randomNum1;
-    label2.textContent = randomNum2;
-    label3.textContent = randomNum3;
+    age = myText.value;
+    age = Number(age);
+
+    if(age > 100){
+        answer.textContent = `You are TOO OLD to enter this site`;
+    }
+
+    else if(age == 0){
+        answer.textContent = `You are new born...`;
+    }
+
+    else if(age < 0) {
+        answer.textContent = `Invalid age entered. Please enter a positive number`;
+    }
+
+    else if(age >=18) {
+        answer.textContent = `Welcome to the site, you are an adult`;
+    }
+
+    else{
+        answer.textContent = `You must be 18+ to enter this site`;
+    }
 }
