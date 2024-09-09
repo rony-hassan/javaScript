@@ -1,24 +1,20 @@
-// SWITCH = can be an efficient replacement to many else if statements
+// String Slicing
+//               string.slice(start, end);
 
-let testScore = 92;
-let letterGrade;
+const fullName = "Rony Hassan";
 
-switch(true) {
-    case testScore >=90:
-        letterGrade = "A";
-        break;
-    case testScore >=80:
-        letterGrade = "B";
-        break;
-    case testScore >=70:
-        letterGrade = "C";
-        break;
-    case testScore >= 60:
-        letterGrade = "D";
-        break;
-    default:
-        letterGrade = "F";
-        break;
-}
+//let firstName = fullName.slice(0, 2);
+//let lastName = fullName.slice(-1);
 
-console.log(`Letter Grade: ${letterGrade}`);
+let firstName = fullName.slice(0, fullName.indexOf(" "));
+let lastName = fullName.slice(fullName.indexOf(" ")+1);
+
+console.log(firstName);
+console.log(lastName);
+
+const email = "rony@gmail.com";
+
+let username = email.slice(0, email.indexOf("@"));
+let extension = email.slice(email.indexOf("@") + 1);
+console.log(username);
+console.log(extension);
