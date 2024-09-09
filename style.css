@@ -1,0 +1,25 @@
+body{
+    font-family: verdana;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    flex-direction: column-reverse;
+    height: 90vh;
+}
+
+#myButton{
+    font-size: 3em;
+    padding: 5px 25px;
+    border-radius: 5px;
+    outline: none;
+}
+
+.myLabel{
+    font-size: 2em;
+    padding: 10px;
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+}
