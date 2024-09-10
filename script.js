@@ -1,23 +1,34 @@
-/* Method Chaining = Calling one method after another
-                    in one continuous line of code. */
-                    
+// Number Guessing Game
 
-let username = window.prompt("Enter your username: ");
-// -------- Before Method Chaining ---------
-/*
-username = username.trim();
-let letter = username.charAt(0);
-letter = letter.toUpperCase();
+const minNum = 1;
+const maxNum = 100;
+const answer = Math.floor(Math.random() * (maxNum - minNum + 1)) + minNum;
 
-let extraChars = username.slice(1);
-extraChars = extraChars.toLowerCase();
+let attempts = 0;
+let guess;
+let running = true;
 
-username = letter + extraChars;
+while(running){
 
-console.log(username);
-*/
+    guess = window.prompt(`Guess a number between ${minNum} and ${maxNum}`);
+    guess = Number(guess);
 
-// -------- METHOD CHAINING --------
-
-username = username.trim().charAt(0).toUpperCase() + username.slice(1).toLowerCase();
-console.log(username);
+    if(isNaN(guess)) {
+        window.alert("Please enter a valid number");
+    }else if(guess < minNum || guess > maxNum){
+        window.alert(`Please enter a number between ${minNum} and ${maxNum}`);
+    }
+    else{
+        attempts++;
+        if(guess < answer) {
+            window.alert("Too low! Try again.");
+        }
+        else if(guess > answer) {
+            window.alert("Too high! Try again.");
+        }
+        else{
+            window.alert(`Congratulations! You guessed the correct number in ${attempts} attempts.`);
+            running = false;
+        }
+    }
+}
