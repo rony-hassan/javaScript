@@ -1,19 +1,21 @@
-//function = A section of reusable code.
-//            Declare code once, use it whenever you want.
-//            Call the function to execute that code.
+//variable scope = where a variable is recognized
+//                 and accessible (local vs global)
 
-function isEven(number) {
-    return number % 2 ===0 ? true : false;
+// Global scope: declared outside of any function
+// If there is same variable name inside and outside of a function then
+//    we will use the local scope first.
+
+let x = 3
+
+
+function function1() {
+    ++x;
+    console.log(x);
 }
 
-function isValidEmail(email){
-    if(email.includes('@')){
-        return true;
-    }
-    else {
-        return false;
-    }
+function function2() {
+    console.log(x);
 }
-
-console.log(isEven(1086));
-console.log(isValidEmail("emal@gmail.com"));
+function1();
+function2();
+//In this case, both have same answer which is 4 
