@@ -1,21 +1,25 @@
-//variable scope = where a variable is recognized
-//                 and accessible (local vs global)
-
-// Global scope: declared outside of any function
-// If there is same variable name inside and outside of a function then
-//    we will use the local scope first.
-
-let x = 3
+// Temperature  conversion
+const textBox = document.getElementById("textBox");
+const toFahrenheit = document.getElementById("toFahrenheit");
+const toCelsius = document.getElementById("toCelsius");
+const result = document.getElementById("result");
+let temp;
 
 
-function function1() {
-    ++x;
-    console.log(x);
+function convert() {
+
+    if(toFahrenheit.checked){
+        temp = Number(textBox.value);
+        temp = temp * 9 / 5 + 32;
+        result.textContent = temp.toFixed(1) + "°F";
+    }
+    else if(toCelsius.checked){
+        temp = Number(textBox.value);
+        temp = (temp - 32) * 5 / 9;
+        result.textContent = temp.toFixed(1) + "°C";
+    }
+    else{
+        result.textContent = "Select a unit";
+    }
+
 }
-
-function function2() {
-    console.log(x);
-}
-function1();
-function2();
-//In this case, both have same answer which is 4 
