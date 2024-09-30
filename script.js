@@ -1,27 +1,21 @@
-/* Lecture 31
-forEach() = method used to iterate over the elements 
-                of an array and apply a specified funtion(callback)
-                to each element
-
-                array.forEach(callback)
-                element, index, array are provided
+/* Lecture 32
+.map() = accepts a callback and applies that function
+        to each element of an array, then return a new array
 */
 
-let fruits = ["apple", "orange", "banana", "coconut"];
+const numbers = [1,2,3,4,5];
+const squares = numbers.map(square);
 
-//fruits.forEach(upperCase);
-fruits.forEach(capitalize);
-fruits.forEach(display);
+const students = ["a","b","c","d"];
+const upperStudents = students.map(toUpper);
 
+console.log(squares);
+console.log(upperStudents);
 
-function upperCase(element, index, array){
-    array[index] = element.toUpperCase();
+function square(element){
+    return Math.pow(element,2);
 }
 
-function capitalize(element,index,array){
-    array[index] = element.charAt(0).toUpperCase() + element.slice(1);
-}
-
-function display(element){
-    console.log(element);
+function toUpper(element){
+    return element.toUpperCase();
 }
