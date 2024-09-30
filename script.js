@@ -1,23 +1,27 @@
-// callback = a function that is passed as an argument to another function
+/* Lecture 31
+forEach() = method used to iterate over the elements 
+                of an array and apply a specified funtion(callback)
+                to each element
 
-/*hello(goodbye);
+                array.forEach(callback)
+                element, index, array are provided
+*/
 
-function hello(callback){
-    console.log("Hello");
-    callback();
+let fruits = ["apple", "orange", "banana", "coconut"];
+
+//fruits.forEach(upperCase);
+fruits.forEach(capitalize);
+fruits.forEach(display);
+
+
+function upperCase(element, index, array){
+    array[index] = element.toUpperCase();
 }
 
-function goodbye(){
-    console.log("Goodbye");
-}*/
-
-sum(display,14,2);
-
-function sum(callback,x,y){
-    let result = x + y ;
-    callback(result);
+function capitalize(element,index,array){
+    array[index] = element.charAt(0).toUpperCase() + element.slice(1);
 }
 
-function display(result){
-    console.log(result);
+function display(element){
+    console.log(element);
 }
