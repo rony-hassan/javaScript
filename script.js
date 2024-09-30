@@ -1,42 +1,23 @@
-// Random Password Generator
+// callback = a function that is passed as an argument to another function
 
-function generatePassword(length,includeLowercase,includeUppercase,includeNumbers,includeSymbols){
+/*hello(goodbye);
 
-    const lowercaseChars = "abcdefghijklmnopqrstuvwxyz";
-    const uppercaseChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-    const numberChars = "0123456789";
-    const symbolChars = "!@#$%^&*()_+-=";
-
-    let allowedChars = "";
-    let password = "";
-
-    allowedChars += includeLowercase ? lowercaseChars : "";
-    allowedChars += includeUppercase ? uppercaseChars : "";
-    allowedChars += includeNumbers ? numberChars : "";
-    allowedChars += includeSymbols ? symbolChars : "";
-
-    if(length <=0){
-        return `(password length must be at least 1)`;
-    }
-
-    if(allowedChars === 0){
-        return `(At least 1 set of character needs to be selected)`;
-    }
-
-    for(let i=0; i<length; i++){
-        const randomIndex = Math.floor(Math.random() * allowedChars.length);
-        password += allowedChars[randomIndex];
-    }
-
-    return password;
+function hello(callback){
+    console.log("Hello");
+    callback();
 }
 
-const passwordLength = 12;
-const includeLowercase = true;
-const includeUppercase = true;
-const includeNumbers = true;
-const includeSymbols = true;
+function goodbye(){
+    console.log("Goodbye");
+}*/
 
-const password = generatePassword(passwordLength,includeLowercase,includeUppercase,includeNumbers,includeSymbols);
+sum(display,14,2);
 
-console.log(`Generate password: ${password}`);
+function sum(callback,x,y){
+    let result = x + y ;
+    callback(result);
+}
+
+function display(result){
+    console.log(result);
+}
