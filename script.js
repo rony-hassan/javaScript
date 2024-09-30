@@ -1,21 +1,18 @@
-/* Lecture 32
-.map() = accepts a callback and applies that function
-        to each element of an array, then return a new array
+/* Lecture 34
+.reduce() = reduce the elements of an array to a single value
 */
 
-const numbers = [1,2,3,4,5];
-const squares = numbers.map(square);
+const prices = [5,30,10,25,15,20];
+const total = prices.reduce(sum);
+const grades = [75,50,85,90,65];
+const maximum = grades.reduce(getMax);
 
-const students = ["a","b","c","d"];
-const upperStudents = students.map(toUpper);
+console.log(`$${total}`);
+console.log(maximum);
 
-console.log(squares);
-console.log(upperStudents);
-
-function square(element){
-    return Math.pow(element,2);
+function sum(prev,next){
+    return prev + next;
 }
-
-function toUpper(element){
-    return element.toUpperCase();
+function getMax(accumulator,element){
+    return Math.max(accumulator,element);
 }
