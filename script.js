@@ -1,45 +1,52 @@
-/* Lecture 37
-object = A collection of related properties and/ or methods
-        Can represent real world objects (people, products, places)
-        Object = {key:value, function()}
+/* Lecture 40
+    class = (ES6 feature) provideds a more structured and cleaner
+        way to work with objects compared to traditional constructor function
+        ex. static keyword, encapsulation, inheritance
 
-this = reference to the object where THIS is used 
-        (the object depends on the immediate context)
-        person.name = this.name
-
-constructor = special method for defining the properties and methods
-                of objects
+    static = keyword that defines properties or methods that belong
+            to a class itself rather than the objects created from that class
+            (class owns anything static, not the objects)
 */
 
-const person = {
-    firstName: "Rony",
-    lastName : "Hassan",
-    age: 22,
-    isEmployed: true,
-    sayHello: function() {
-        console.log(`Hi! I am ${this.firstName} ${this.lastName} and my age is ${this.age}`);
+class Product{
+    constructor(name, price){
+        this.name = name;
+        this.price = price;
+    }
+
+    displayProduct(){
+        console.log(`Product: ${this.name}`);
+        console.log(`Price: $${this.price.toFixed(2)}`);
+    }
+
+    calculateTotal(salesTax){
+        return this.price + (this.price * salesTax);
     }
 }
 
-person.sayHello();
-console.log(this);
+const salesTax = 0.05;
 
-function Car(make,model,year,color){
-    this.make = make,
-    this.model = model,
-    this.year = year,
-    this.color = color
+const product1 = new Product("Shirt",19.99);
+const product2 = new Product("Pants",22.50);
+const product3 = new Product("Underwear",100.00);
+
+product2.displayProduct();
+
+const total = product1.calculateTotal(salesTax);
+console.log(`Total price(with Tax): $${total.toFixed(2)}`);
+
+class MathUtil{
+    static PI = 3.14159;
+
+    static getDiameter(radius){
+        return radius * 2;
+    }
+
+    static getCircumference(radius){
+        return radius * 2 * this.PI;
+    }
 }
 
-const car1 = new Car("Ford", "Mustang", 2024, "red");
-const car2 = new Car("Chevrolet","Camaro",2025,"blue");
-
-console.log(`Car 1 maker: ${car1.make}`);
-console.log(`Car 1 model: ${car1.model}`);
-console.log(`Car 1 year: ${car1.year}`);
-console.log(`Car 1 color: ${car1.color}`);
-
-console.log(`Car 2 maker: ${car2.make}`);
-console.log(`Car 2 model: ${car2.model}`);
-console.log(`Car 2 year: ${car2.year}`);
-console.log(`Car 2 color: ${car2.color}`);
+console.log(MathUtil.PI);
+console.log(MathUtil.getDiameter(10));
+console.log(MathUtil.getCircumference(10));
