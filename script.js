@@ -1,52 +1,95 @@
-/* Lecture 40
-    class = (ES6 feature) provideds a more structured and cleaner
-        way to work with objects compared to traditional constructor function
-        ex. static keyword, encapsulation, inheritance
+/* Lecture 41
+    super = keyword is used in classes to call the constructor or
+            access the properties and methods of a parent (superclass)
+            this = this object
+            super = the parent
+    
+    getter = special method that makes a property readable
+    setter = special method that makes a property writeable
 
-    static = keyword that defines properties or methods that belong
-            to a class itself rather than the objects created from that class
-            (class owns anything static, not the objects)
+    validate and modify a value when reading/wrting a property
 */
 
-class Product{
-    constructor(name, price){
+class Animal{
+
+    constructor(name,age){
         this.name = name;
-        this.price = price;
-    }
-
-    displayProduct(){
-        console.log(`Product: ${this.name}`);
-        console.log(`Price: $${this.price.toFixed(2)}`);
-    }
-
-    calculateTotal(salesTax){
-        return this.price + (this.price * salesTax);
+        this.age = age;
     }
 }
 
-const salesTax = 0.05;
+class Rabbit extends Animal{
 
-const product1 = new Product("Shirt",19.99);
-const product2 = new Product("Pants",22.50);
-const product3 = new Product("Underwear",100.00);
-
-product2.displayProduct();
-
-const total = product1.calculateTotal(salesTax);
-console.log(`Total price(with Tax): $${total.toFixed(2)}`);
-
-class MathUtil{
-    static PI = 3.14159;
-
-    static getDiameter(radius){
-        return radius * 2;
-    }
-
-    static getCircumference(radius){
-        return radius * 2 * this.PI;
+    constructor(name,age,runSpeed){
+        super(name,age);
+        this.runSpeed = runSpeed;
     }
 }
 
-console.log(MathUtil.PI);
-console.log(MathUtil.getDiameter(10));
-console.log(MathUtil.getCircumference(10));
+class Fish extends Animal{
+
+    constructor(name,age,swimSpeed){
+        super(name,age);
+        this.swimSpeed = swimSpeed;
+    }
+}
+
+class Hawk extends Animal{
+
+    constructor(name,age,flySpeed){
+        super(name,age);
+        this.flySpeed = flySpeed;
+    }
+}
+
+const rabbit = new Rabbit("rabbit",1,2);
+
+console.log(rabbit.name);
+console.log(rabbit.runSpeed);
+console.log("Another program starts here");
+
+//getter and setter starts here
+
+class Rectangle{
+
+    constructor(width,height){
+        this.width = width;
+        this.height = height;
+    }
+
+    set width(newWidth){
+        if(newWidth > 0){
+            this._width = newWidth;
+        }
+        else{
+            console.error("Width msut be a positive number");
+        }
+    }
+
+    set height(newHeight){
+        if(newHeight > 0){
+            this._height = newHeight;
+        }
+        else{
+            console.error("Height msut be a positive number");
+        }
+    }
+
+    get width(){
+        return this._width;
+    }
+
+    get height(){
+        return this._height;
+    }
+
+    get area(){
+        return this._width * this._height;
+    }
+}
+
+const rectangle = new Rectangle(1000,32);
+
+console.log(rectangle.width);
+console.log(rectangle.height);
+console.log(`The area is ${rectangle.area}`);
