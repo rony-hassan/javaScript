@@ -1,95 +1,47 @@
-/* Lecture 41
-    super = keyword is used in classes to call the constructor or
-            access the properties and methods of a parent (superclass)
-            this = this object
-            super = the parent
-    
-    getter = special method that makes a property readable
-    setter = special method that makes a property writeable
+/* Lecture 42
+    destructuring = extract values from arrays and objects, then
+                    assign them to variables in a convenient way
+                    [] = to perform array destructuring
+                    {} = to perfrom object destructuring
+ */
 
-    validate and modify a value when reading/wrting a property
-*/
+//-----Example 1 -------
+// SWAP the value of two variables
 
-class Animal{
+let a = 1;
+let b = 2;
 
-    constructor(name,age){
-        this.name = name;
-        this.age = age;
-    }
+[a,b] = [b,a];
+
+console.log(a);
+console.log(b);
+
+//-----Example 2 -------
+// SWAP 2 elements in an array
+
+const colors = ["red","green","blue","black","white"];
+
+[colors[0], colors[4]] = [colors[4], colors[0]];
+console.log(colors);
+
+//-----Example 3 -------
+// Assign array elements to variables
+
+const color = ["red","green","blue","black","white"];
+const [firstcolor, secondcolor, thirdcolor] = color;
+console.log(firstcolor);
+console.log(thirdcolor);
+
+//-----Example 4 -------
+// Extract values from objects
+
+const person1 = {
+    firstName : "Bob",
+    lastName : "Square",
+    age : 30,
+    job : "Cook"
 }
 
-class Rabbit extends Animal{
+const {firstName,lastName,age,job} = person1;
 
-    constructor(name,age,runSpeed){
-        super(name,age);
-        this.runSpeed = runSpeed;
-    }
-}
-
-class Fish extends Animal{
-
-    constructor(name,age,swimSpeed){
-        super(name,age);
-        this.swimSpeed = swimSpeed;
-    }
-}
-
-class Hawk extends Animal{
-
-    constructor(name,age,flySpeed){
-        super(name,age);
-        this.flySpeed = flySpeed;
-    }
-}
-
-const rabbit = new Rabbit("rabbit",1,2);
-
-console.log(rabbit.name);
-console.log(rabbit.runSpeed);
-console.log("Another program starts here");
-
-//getter and setter starts here
-
-class Rectangle{
-
-    constructor(width,height){
-        this.width = width;
-        this.height = height;
-    }
-
-    set width(newWidth){
-        if(newWidth > 0){
-            this._width = newWidth;
-        }
-        else{
-            console.error("Width msut be a positive number");
-        }
-    }
-
-    set height(newHeight){
-        if(newHeight > 0){
-            this._height = newHeight;
-        }
-        else{
-            console.error("Height msut be a positive number");
-        }
-    }
-
-    get width(){
-        return this._width;
-    }
-
-    get height(){
-        return this._height;
-    }
-
-    get area(){
-        return this._width * this._height;
-    }
-}
-
-const rectangle = new Rectangle(1000,32);
-
-console.log(rectangle.width);
-console.log(rectangle.height);
-console.log(`The area is ${rectangle.area}`);
+console.log(firstName);
